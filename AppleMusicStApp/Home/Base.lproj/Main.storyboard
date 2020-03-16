@@ -21,13 +21,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Z0-gx-IXH">
                                     <size key="itemSize" width="180" height="240"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="414" height="296"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrackCollecionViewCell" id="43o-oc-eSN" customClass="TrackCollecionViewCell" customModule="AppleMusicStApp" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="20" width="180" height="240"/>
+                                        <rect key="frame" x="20" y="316" width="180" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4Ui-kN-WA6">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="240"/>
@@ -70,6 +70,69 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrackCollectionHeaderView" id="ncr-lf-Efc" customClass="TrackCollectionHeaderView" customModule="AppleMusicStApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Pick!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6H-o9-4yG">
+                                            <rect key="frame" x="20" y="30" width="184" height="36"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Hf-ZF-6sg">
+                                            <rect key="frame" x="28" y="66" width="366" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="0q4-dv-xVV"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnc-oV-hv7">
+                                            <rect key="frame" x="28" y="66" width="366" height="200"/>
+                                            <connections>
+                                                <action selector="cardTapped:" destination="ncr-lf-Efc" eventType="touchUpInside" id="fyE-Bs-wTZ"/>
+                                            </connections>
+                                        </button>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S5j-ZT-y0y">
+                                            <rect key="frame" x="349" y="226.5" width="35" height="34"/>
+                                            <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAY NOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzZ-Hu-MC8">
+                                            <rect key="frame" x="38" y="210.5" width="75" height="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLAY NOW Today's pick is silo's album DDDD - . let's listen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUR-1R-28K">
+                                            <rect key="frame" x="38" y="227.5" width="294.5" height="33.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="7Hf-ZF-6sg" secondAttribute="trailing" constant="20" id="1aH-wb-kwO"/>
+                                        <constraint firstItem="dUR-1R-28K" firstAttribute="leading" secondItem="7Hf-ZF-6sg" secondAttribute="leading" constant="10" id="5WE-OJ-y8w"/>
+                                        <constraint firstItem="v6H-o9-4yG" firstAttribute="top" secondItem="ncr-lf-Efc" secondAttribute="top" constant="30" id="8YZ-o0-4BN"/>
+                                        <constraint firstItem="qnc-oV-hv7" firstAttribute="top" secondItem="7Hf-ZF-6sg" secondAttribute="top" id="DS7-bk-j7k"/>
+                                        <constraint firstItem="dUR-1R-28K" firstAttribute="top" secondItem="zzZ-Hu-MC8" secondAttribute="bottom" id="EDc-rI-IXa"/>
+                                        <constraint firstItem="S5j-ZT-y0y" firstAttribute="trailing" secondItem="7Hf-ZF-6sg" secondAttribute="trailing" constant="-10" id="GPu-kj-hyw"/>
+                                        <constraint firstItem="7Hf-ZF-6sg" firstAttribute="leading" secondItem="ncr-lf-Efc" secondAttribute="leading" constant="28" id="IyR-VC-a6G"/>
+                                        <constraint firstItem="S5j-ZT-y0y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dUR-1R-28K" secondAttribute="trailing" constant="15" id="RcH-sB-0m4"/>
+                                        <constraint firstItem="dUR-1R-28K" firstAttribute="bottom" secondItem="7Hf-ZF-6sg" secondAttribute="bottom" constant="-5" id="brS-Ws-6Tn"/>
+                                        <constraint firstItem="qnc-oV-hv7" firstAttribute="leading" secondItem="7Hf-ZF-6sg" secondAttribute="leading" id="ciK-l9-fgu"/>
+                                        <constraint firstItem="7Hf-ZF-6sg" firstAttribute="top" secondItem="v6H-o9-4yG" secondAttribute="bottom" id="e1j-9B-k7U"/>
+                                        <constraint firstItem="zzZ-Hu-MC8" firstAttribute="leading" secondItem="7Hf-ZF-6sg" secondAttribute="leading" constant="10" id="jZA-ex-xh8"/>
+                                        <constraint firstItem="qnc-oV-hv7" firstAttribute="bottom" secondItem="7Hf-ZF-6sg" secondAttribute="bottom" id="jbh-fc-q3n"/>
+                                        <constraint firstItem="S5j-ZT-y0y" firstAttribute="bottom" secondItem="7Hf-ZF-6sg" secondAttribute="bottom" constant="-5" id="nJw-hP-RcX"/>
+                                        <constraint firstItem="qnc-oV-hv7" firstAttribute="trailing" secondItem="7Hf-ZF-6sg" secondAttribute="trailing" id="s7Q-GT-oRi"/>
+                                        <constraint firstItem="v6H-o9-4yG" firstAttribute="leading" secondItem="ncr-lf-Efc" secondAttribute="leading" constant="20" id="xSA-kc-Uo6"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="descriptionLabel" destination="dUR-1R-28K" id="VCd-Xb-6wU"/>
+                                        <outlet property="thumbnailImageView" destination="7Hf-ZF-6sg" id="YOF-jy-NzN"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="PaP-6h-Ll4"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="REL-kS-TaO"/>
@@ -91,4 +154,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
