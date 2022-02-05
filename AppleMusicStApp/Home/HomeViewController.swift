@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreMIDI
+import CoreAudio
 
 class HomeViewController: UIViewController {
     // TODO: 트랙관리 객체 추가
@@ -27,7 +29,7 @@ extension HomeViewController: UICollectionViewDataSource {
     // 셀 어떻게 표시 할까?
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // TODO: 셀 구성하기
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrackCollecionViewCell", for: indexPath) as? TrackCollecionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrackCollectionViewCell", for: indexPath) as? TrackCollecionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -42,7 +44,20 @@ extension HomeViewController: UICollectionViewDataSource {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             // TODO: 헤더 구성하기
-            return UICollectionReusableView()
+            guard let item = trackManager.todaysTrack else {
+                return UICollectionReusableView()
+            }
+            
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TrackCollectionHeaderView", for: indexPath) as? TrackCollectionHeaderView else {
+                return TrackCollectionHeaderView()
+            }
+            
+            
+            header.update(with: item)
+            header.tapHandler = { item -> Void in
+                print("----> item \(item.convertToTrack()?.title)")
+            }
+            return header
         default:
             return UICollectionReusableView()
         }
